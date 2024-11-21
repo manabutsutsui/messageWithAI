@@ -134,11 +134,12 @@ class ProcessingScreenState extends ConsumerState<ProcessingScreen> {
         request.headers['Accept'] = 'application/json';
 
         request.fields['text_prompts[0][text]'] =
-            'Transform this image into ${widget.selectedStyle} style, maintaining the original composition and subject matter. Ensure the result looks like a ${widget.selectedStyle} artwork while preserving the essence of the original photo.';
-        request.fields['cfg_scale'] = '10';
+            'Apply a ${widget.selectedStyle} style filter to this image without changing the content or composition. Preserve all objects, structures, and details from the original photo, only altering the artistic style to resemble ${widget.selectedStyle}. Do not add, remove, or significantly alter any elements from the original image.';
+        request.fields['image_strength'] = '0.5';
+        request.fields['cfg_scale'] = '30';
         request.fields['clip_guidance_preset'] = 'FAST_BLUE';
         request.fields['samples'] = '1';
-        request.fields['steps'] = '50';
+        request.fields['steps'] = '30';
 
         request.files.add(await http.MultipartFile.fromPath(
           'init_image',

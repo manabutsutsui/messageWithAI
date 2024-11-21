@@ -261,10 +261,10 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   Future<void> _fetchOfferings() async {
     try {
-      final offerings = await Purchases.getOfferings();
-      print(offerings.current);
-      print(offerings.all);
-      print(offerings.current?.monthly?.storeProduct.priceString);
+      // final offerings = await Purchases.getOfferings();
+      // print(offerings.current);
+      // print(offerings.all);
+      // print(offerings.current?.monthly?.storeProduct.priceString);
     } catch (e) {
       print('Error fetching offerings: $e');
     }
